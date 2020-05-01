@@ -9,6 +9,10 @@ namespace Webmvc.Databases.Context
         {
         }
 
+        public WebMvcContext() : base()
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             // Assuring that Category name is unique on database
