@@ -11,14 +11,20 @@ namespace Webmvc.Databases.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            // Assuring that Category Name is Unique on Our Database
+            // Assuring that Category name is unique on database
             builder.Entity<Category>()
                 .HasIndex(c => c.Name)
+                .IsUnique();
+
+            // Assuring that Product name is unique on database
+            builder.Entity<Product>()
+                .HasIndex(p => p.Name)
                 .IsUnique();
 
             base.OnModelCreating(builder);
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
